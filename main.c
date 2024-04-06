@@ -1,7 +1,7 @@
 //******************************************************************************
 // Universidad Del Valle De Guatemala
-// IE2023: Programación de Microcontroladores
-// Autor: Héctor Alejandro Martínez Guerra - 22369 
+// IE2023: ProgramaciÃ³n de Microcontroladores
+// Autor: HÃ©ctor Alejandro MartÃ­nez Guerra - 22369 
 // Proyecto: Prelab 4
 // Hardware: Atmega238p
 //******************************************************************************
@@ -18,8 +18,8 @@ void initADC(void);
 
 int main(void)
 {
-	DDRB = 0b00011100;   //PB0, PB1 como entrada. PB2, PB3, PB4 como salida
-	PORTB = 0b00000011;		//pull up encendido en PB0 y PB1
+	DDRB = 0b00011100;	//PB0, PB1 como entrada
+	PORTB = 0b00000011;	//Pull Up PB0 y PB1
 	
 	cli();
 	DDRD |= 0xFF
@@ -42,11 +42,11 @@ void initADC(void){
 	ADMUX |= (1<<REFS0);
 	ADMUX &= ~(1<<REFS1);
 	
-	//Justificación a la izquierda
+	//JustificaciÃ³n a la izquierda
 	ADMUX |= (1<<ADLAR);
 	ADCSRA = 0;
 
-	//Habilitando la interrupción del ADC
+	//Habilitando la interrupciÃ³n del ADC
 	ADCSRA |= (1<<ADIE);
 	
 	//Habilitar prescaler de 16M7128 Fadc = 125kHz
